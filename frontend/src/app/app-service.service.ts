@@ -22,13 +22,9 @@ export class AppServiceService {
   }
 
   getTeacherData(){
-    return this.http.get('/api/listTeachers')
-  }
-
- /*  getTeacherData(){
     return this.http.get(`/${this.ROOT_URL}/listTeachers`)
   }
- */
+
   getStudentData(){
     return this.http.get(`/${this.ROOT_URL}/listStudents`)
   }

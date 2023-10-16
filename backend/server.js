@@ -19,13 +19,26 @@ const bodyParser = require  ("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/dbinitialize", async function (req, res) {
+/* app.get("/dbinitialize", async function (req, res) {
   console.log("DB is getting initialized");
   let data = await dbinitialize();
 
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify(data));
+}); */
+
+
+app.get("/dbinitialize", async function (req, res) {
+  try {
+    console.log("DB is getting initialized");
+    await dbinitialize();
+    res.status(200).json({ message: "Database initialized successfully." });
+  } catch (error) {
+    console.error("Error initializing database:", error);
+    res.status(500).json({ error: "Internal server error." });
+  }
 });
+
 // ============== Teacher Related endpoints ==============
 
 app.get("/listTeachers", async function (req, res) {
@@ -37,6 +50,7 @@ app.get("/listTeachers", async function (req, res) {
 });
 
 app.post("/getTeacherInfo", async function (req, res) {
+
   let reqBody = req.body;
   console.log("Request received to get Teacher Info");
   let data = await readTeacherInfo(reqBody.id);

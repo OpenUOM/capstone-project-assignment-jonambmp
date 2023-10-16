@@ -1,4 +1,5 @@
 const dbConnection = require("./sqlite");
+const testBase = require('./test/testBase'); // Correct relative path to testBase.js 15.10.2023
 
 dbConnection
   .getDbConnection()
@@ -48,8 +49,8 @@ const readTeacherInfo = async (id) => {
                 reject(error);
             });
     });
-}
-
+} 
+ 
 /* const readTeacherInfo = async (id) => {
     const sql = `SELECT * FROM dummyData`
     return new Promise((resolve, reject) => {
@@ -306,5 +307,6 @@ module.exports = {
     readStudentInfo,
     readTeacherInfo,
     updateStudent,
-    updateTeacher
+    updateTeacher,
+    dbinitialize //add 15/10/2023
 };

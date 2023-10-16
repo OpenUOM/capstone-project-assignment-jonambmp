@@ -7,7 +7,7 @@ const connectDatabase = async () => {
   if (process.env.NODE_ENV === "test" || process.env.NODE_ENV === "test-backend") {
       return new sqlite3.Database(":memory:", sqlite3.OPEN_READWRITE);
   } else {
-    return new sqlite3.Database('./db.sqlite', sqlite3.OPEN_READWRITE);
+    return new sqlite3.Database('C:\\My_Bot\\Capstone - Project\\capstone-project\\db.sqlite', sqlite3.OPEN_READWRITE);
   }
 }
 
