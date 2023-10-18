@@ -1,5 +1,5 @@
 const dbConnection = require("./sqlite");
-const testBase = require('./test/testBase'); // Correct relative path to testBase.js 15.10.2023
+const testBase = require('./test/testBase'); 
 
 dbConnection
   .getDbConnection()

@@ -1,4 +1,4 @@
-const express = require ("express");
+const express = require("express");
 
 const {
   readTeachers,
@@ -12,7 +12,7 @@ const {
   updateStudent,
   updateTeacher,
   dbinitialize,
-} = require ("./database.js");
+} = require("./database.js");
 
 const app = express();
 const bodyParser = require  ("body-parser");
